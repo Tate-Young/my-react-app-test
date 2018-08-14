@@ -6,12 +6,32 @@ import './index.css';
 import registerServiceWorker from './registerServiceWorker';
 import reducer from './reducers'
 import Counter from './container'
-import { createStore, compose } from 'redux'
+import { createStore, compose, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 // import { AppContainer } from 'react-hot-loader';
 
+const middlewares = []
+
+if (process.env.NODE_ENV === 'development') {
+  const { createLogger } = require('redux-logger')
+  middlewares.push(createLogger({
+    stateTransformer: (state) => {
+      if (state.toJS) return state.toJS()
+      const entries = Object.entries(state)
+      return entries.reduce((obj, entry) => {
+        entry[1].toJS ? (obj[entry[0]] = entry[1].toJS()) : (obj[entry[0]] = entry[1]) // eslint-disable-line
+        return obj
+      }, {})
+    },
+  }))
+}
+
 // const store = createStore(reducer)
-const store = compose()(createStore)(reducer)
+// const store = compose()(createStore)(reducer)
+const store = compose(
+  applyMiddleware(...middlewares)
+)(createStore)(reducer)
+
 const rootEl = document.getElementById('root')
 
 // const myRender = Component => {
