@@ -15,6 +15,8 @@ const middlewares = []
 if (process.env.NODE_ENV === 'development') {
   const { createLogger } = require('redux-logger')
   middlewares.push(createLogger({
+    level: 'log',
+    timestamp: true,
     stateTransformer: (state) => {
       if (state.toJS) return state.toJS()
       const entries = Object.entries(state)
