@@ -1,10 +1,16 @@
 import { connect } from "react-redux";
+import toJS from '../toJS'
 import Counter from '../components'
 import {increment} from '../actions'
 import {decrement} from '../actions'
 
+
+// const mapStateToProps = state => ({
+//   counter: state.counter.myVal
+// })
+
 const mapStateToProps = state => ({
-  counter: state.counter.myVal
+  counter: state.getIn(['counter', 'myVal'])
 })
 
 const mapDispatchToProps = (dispatch) => ({
@@ -12,4 +18,4 @@ const mapDispatchToProps = (dispatch) => ({
   decrement: (...args) => dispatch(decrement(...args))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Counter)
+export default connect(mapStateToProps, mapDispatchToProps)(toJS(Counter))
