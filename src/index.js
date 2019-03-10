@@ -30,7 +30,8 @@ if (process.env.NODE_ENV === 'development') {
 
 // const store = createStore(reducer)
 // const store = compose()(createStore)(reducer)
-const store = compose(
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+const store = composeEnhancers(
   applyMiddleware(...middlewares)
 )(createStore)(reducer)
 
