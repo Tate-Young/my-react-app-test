@@ -6,9 +6,12 @@ import './index.css';
 import registerServiceWorker from './registerServiceWorker';
 import reducer from './reducers'
 import Counter from './container'
-import { createStore, compose, applyMiddleware } from 'redux'
+import { createStore, compose, applyMiddleware } from 'redux' // eslint-disable-line
 import { Provider } from 'react-redux'
 // import { AppContainer } from 'react-hot-loader';
+// 安装redux-devtools-extension的可视化工具。
+import { composeWithDevTools } from 'redux-devtools-extension'
+
 
 const middlewares = []
 
@@ -17,6 +20,7 @@ if (process.env.NODE_ENV === 'development') {
   middlewares.push(createLogger({
     level: 'log',
     timestamp: true,
+    collapsed: true,
     stateTransformer: (state) => {
       if (state.toJS) return state.toJS()
       const entries = Object.entries(state)
@@ -30,8 +34,11 @@ if (process.env.NODE_ENV === 'development') {
 
 // const store = createStore(reducer)
 // const store = compose()(createStore)(reducer)
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
-const store = composeEnhancers(
+// const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+// const store = composeEnhancers(
+//   applyMiddleware(...middlewares)
+// )(createStore)(reducer)
+const store = composeWithDevTools(
   applyMiddleware(...middlewares)
 )(createStore)(reducer)
 

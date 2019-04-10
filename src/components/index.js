@@ -1,13 +1,11 @@
-import React, { Component } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import Button from '@material-ui/core/Button';
-
 import { hot } from 'react-hot-loader';
 
-class Counter extends Component {
-
-  render() {
-    const { counter, increment, decrement } = this.props
+function Counter({
+  counter, increment, decrement
+}) {
     return (
       <p>
         Holy shit Clicked: {counter} times
@@ -21,10 +19,9 @@ class Counter extends Component {
         </button>
         <Button variant="contained" color="primary">
           Hello Tate & Snow
-      </Button>
+        </Button>
       </p>
     )
-  }
 }
 
 Counter.propTypes = {
