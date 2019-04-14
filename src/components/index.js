@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import Button from '@material-ui/core/Button';
 import { hot } from 'react-hot-loader';
@@ -6,6 +6,8 @@ import { hot } from 'react-hot-loader';
 function Counter({
   counter, increment, decrement
 }) {
+    const [name, setName] = useState('hello')
+
     return (
       <p>
         Holy shit Clicked: {counter} times
@@ -17,8 +19,8 @@ function Counter({
         <button onClick={decrement}>
           -
         </button>
-        <Button variant="contained" color="primary">
-          Hello Tate & Snow
+        <Button variant="contained" color="primary" onClick={() => setName('world')}>
+          {name}
         </Button>
       </p>
     )
