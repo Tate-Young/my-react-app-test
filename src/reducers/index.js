@@ -1,4 +1,4 @@
-import counter from './crement'
+import counter from './reducer'
 // import { combineReducers } from 'redux';
 import { combineReducers } from 'redux-immutable';
 

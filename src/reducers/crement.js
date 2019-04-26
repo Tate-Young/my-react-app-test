@@ -1,5 +1,5 @@
 import { createReducer, Types as ReduxSauceTypes } from 'reduxsauce'
-import Types from '../actions/types'
+import Types from '../types'
 import { fromJS } from 'immutable'
 
 export const INITIAL_STATE = fromJS({ 
