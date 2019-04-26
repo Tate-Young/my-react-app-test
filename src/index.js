@@ -5,7 +5,8 @@ import './index.css';
 // import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import reducer from './reducers'
-import Counter from './container'
+// import Counter from './container'
+import App from './App'
 import { createStore, compose, applyMiddleware } from 'redux' // eslint-disable-line
 import { Provider } from 'react-redux'
 // import { AppContainer } from 'react-hot-loader';
@@ -63,7 +64,7 @@ const myRender = Component => {
   );
 }
 
-myRender(Counter)
+myRender(App)
 // if (module.hot) module.hot.accept('./container', () => myRender(Counter));
 
 registerServiceWorker()
