@@ -1,43 +1,39 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React from 'react';
+import { hot } from 'react-hot-loader';
 import './App.css';
 import Counter from './container'
+import { About, Home } from './components'
+import { BrowserRouter as Router, Route, Link } from "react-router-dom"
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        {/* header */}
-        <Header avatar={logo}></Header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-        <Counter />
+function App() {
+  return (
+    <Router>
+      <div>
+        <Header />
+
+        <Route exact path="/" component={Counter} />
+        <Route path="/home" component={Home} />
+        <Route path="/about" component={About} />
       </div>
-    );
-  }
+    </Router>
+  );
 }
 
-class Header extends Component {
-  constructor(props) {
-    super(props);
-    this.sayName = this.sayName.bind(this)
-    this.state = {
-      name: 'tate'
-    }
-    
-  }
-  sayName() {
-    alert('hello')
-  }
-  render() {
-    return (
-      <header className = "App-header">
-        <img src={this.props.avatar} className="App-logo" alt="logo" onClick={this.sayName}/>
-        <h1 className="App-title">Welcome {this.state.name} to React</h1>
-      </header>
-    )
-  }
+function Header() {
+  return (
+    <ul>
+      <li>
+        <Link to="/">Counter</Link>
+      </li>
+      <li>
+        <Link to="/home">Home</Link>
+      </li>
+      <li>
+        <Link to="/about">About</Link>
+      </li>
+    </ul>
+  );
 }
 
-export default App;
+
+export default hot(module)(App)

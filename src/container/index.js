@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import toJS from '../toJS'
-import Counter from '../components'
+import { Counter } from '../components'
 import {increment} from '../actions'
 import {decrement} from '../actions'
 
