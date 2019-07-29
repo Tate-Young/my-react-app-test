@@ -1,8 +1,8 @@
 import React from 'react';
 import { hot } from 'react-hot-loader';
 import './App.css';
-import Counter from './container'
-import { About, Home } from './components'
+// import Counter from './container'
+import { About, Home, Hooks } from './components'
 import { BrowserRouter as Router, Route, Link } from "react-router-dom"
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
       <div>
         <Header />
 
-        <Route exact path="/" component={Counter} />
+        <Route exact path="/" component={Hooks} />
         <Route path="/home" component={Home} />
         <Route path="/about" component={About} />
       </div>
@@ -23,7 +23,7 @@ function Header() {
   return (
     <ul>
       <li>
-        <Link to="/">Counter</Link>
+        <Link to="/">Hooks</Link>
       </li>
       <li>
         <Link to="/home">Home</Link>
