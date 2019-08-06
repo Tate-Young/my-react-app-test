@@ -3,7 +3,7 @@ import React, { Component } from "react";
 export const withContent = WrappedComponent =>
   class extends Component {
     state = {
-      content: "holy shit ..."
+      content: "holy ddddd ..."
     }
   
     componentDidMount() {
