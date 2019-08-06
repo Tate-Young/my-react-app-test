@@ -2,7 +2,7 @@ import { Component } from "react";
 
 export class RenderProps extends Component {
   state = {
-    content: "666"
+    content: "453434"
   }
 
   componentDidMount() {
