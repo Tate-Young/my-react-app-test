@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 const Title = styled.h1`
   color: orange;
-  font-size: 18px;
+  font-size: 20px;
 `
 
 export function Counter({
