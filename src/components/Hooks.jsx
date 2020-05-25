@@ -2,7 +2,7 @@ import React from 'react'
 
 export class Hooks extends React.Component {
   state = {
-    count: 0
+    count: 1
   }
 
   setCount = () => this.setState({ count: this.state.count + 1 })
